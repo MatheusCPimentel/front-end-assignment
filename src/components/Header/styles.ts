@@ -5,7 +5,7 @@ export const HeaderContainer = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  padding: 1.75rem 0;
+  margin: 1.75rem 0 5rem;
 
   nav {
     ul {

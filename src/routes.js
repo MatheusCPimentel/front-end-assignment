@@ -6,14 +6,14 @@ import {
   Routes as RoutesList,
 } from 'react-router-dom';
 
+import { ProductList } from './pages/productList';
+
 export class Routes extends React.Component {
   render() {
     return (
       <Router>
         <RoutesList>
-          <Route path="/women" element={<p>Women</p>} />
-          <Route path="/men" element={<p>Men</p>} />
-          <Route path="/kids" element={<p>Kids</p>} />
+          <Route path="/" element={<ProductList />} />
         </RoutesList>
       </Router>
     );

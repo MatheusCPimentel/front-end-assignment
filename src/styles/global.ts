@@ -34,6 +34,18 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 600;
   }
 
+  p {
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 2.625rem;
+  }
+
+  h4 {
+    font-size: 1.125rem;
+  }
+
   button {
     cursor: pointer;
   }
