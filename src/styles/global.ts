@@ -20,6 +20,9 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background: var(--background);
     -webkit-font-smoothing: antialiased;
+
+    max-width: 1440px;
+    margin: 0 auto;
   }
 
   body, input, textarea, button {
@@ -33,6 +36,10 @@ export const GlobalStyle = createGlobalStyle`
 
   button {
     cursor: pointer;
+  }
+
+  li {
+    list-style: none;
   }
 
   [disabled] {
