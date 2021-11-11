@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { HeaderContainer } from './styles';
+import { HeaderContainer, CategoryLink } from './styles';
 
 import {
   AttachMoney,
@@ -8,16 +8,60 @@ import {
   ShoppingCartOutlined,
 } from '@material-ui/icons';
 
-export class Header extends React.Component {
+interface HeaderProps {}
+
+interface HeaderState {
+  category: string;
+}
+
+export class Header extends React.Component<HeaderProps, HeaderState> {
+  constructor(props: HeaderProps) {
+    super(props);
+
+    this.state = {
+      category: '',
+    };
+  }
+
+  componentDidMount() {
+    const initialCategory = window.location.pathname.split('/')[1];
+
+    this.setState({ category: initialCategory });
+  }
+
   render() {
     return (
       <HeaderContainer>
         <nav>
-          <ul>
-            <li>Women</li>
-            <li>Men</li>
-            <li>Kids</li>
-          </ul>
+          <CategoryLink
+            to="/women"
+            isActive={this.state.category === 'women'}
+            onClick={() => {
+              this.setState({ category: 'women' });
+            }}
+          >
+            Women
+          </CategoryLink>
+
+          <CategoryLink
+            to="/men"
+            isActive={this.state.category === 'men'}
+            onClick={() => {
+              this.setState({ category: 'men' });
+            }}
+          >
+            Men
+          </CategoryLink>
+
+          <CategoryLink
+            to="/kids"
+            isActive={this.state.category === 'kids'}
+            onClick={() => {
+              this.setState({ category: 'kids' });
+            }}
+          >
+            Kids
+          </CategoryLink>
         </nav>
 
         <img src="images/logo.png" alt="Logo" />

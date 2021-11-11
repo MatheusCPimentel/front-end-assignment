@@ -1,12 +1,12 @@
 import React from 'react';
 
-import {
-  ProductListContainer,
-  ProductItemsList,
-  ProductItem,
-} from '../styles/productList';
+import { ProductListContainer, ProductItemsList, ProductItem } from './styles';
 
-export class ProductList extends React.Component {
+interface ProductListProps {
+  category: string;
+}
+
+export class ProductList extends React.Component<ProductListProps> {
   render() {
     const item = {
       logo: 'https://github.com/matheuscpimentel.png',
@@ -22,7 +22,7 @@ export class ProductList extends React.Component {
 
     return (
       <ProductListContainer>
-        <h2>Category name</h2>
+        <h1>{this.props.category}</h1>
 
         <ProductItemsList>
           {items.map(item => (

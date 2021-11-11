@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import { Link } from 'react-router-dom';
 
 export const HeaderContainer = styled.div`
   display: flex;
@@ -8,35 +10,8 @@ export const HeaderContainer = styled.div`
   margin: 1.75rem 0 5rem;
 
   nav {
-    ul {
-      display: flex;
-      align-items: center;
-
-      li {
-        position: relative;
-
-        padding: 1rem 1rem 1.875rem;
-        text-transform: uppercase;
-        cursor: pointer;
-
-        &:nth-child(1) {
-          color: #5ece7b;
-          font-weight: 600;
-
-          &::after {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-
-            content: '';
-
-            width: 100%;
-
-            border: 1px solid #5ece7b;
-          }
-        }
-      }
-    }
+    display: flex;
+    align-items: center;
   }
 
   svg {
@@ -46,4 +21,36 @@ export const HeaderContainer = styled.div`
       margin-left: 1.2rem;
     }
   }
+`;
+
+interface CategoryLinkProps {
+  isActive?: boolean;
+}
+
+const ActiveCategoryLink = css`
+  color: #5ece7b;
+  font-weight: 600;
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    content: '';
+
+    width: 100%;
+
+    border: 1px solid #5ece7b;
+  }
+`;
+
+export const CategoryLink = styled(Link)<CategoryLinkProps>`
+  position: relative;
+  color: #1d1f22;
+
+  padding: 1rem 1rem 1.875rem;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  ${({ isActive }) => isActive && ActiveCategoryLink}
 `;

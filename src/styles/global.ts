@@ -38,8 +38,16 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
   }
 
-  h2 {
+  h1 {
     font-size: 2.625rem;
+  }
+
+  h2 {
+    font-size: 1.875rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
   }
 
   h4 {
@@ -48,6 +56,10 @@ export const GlobalStyle = createGlobalStyle`
 
   button {
     cursor: pointer;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   li {
