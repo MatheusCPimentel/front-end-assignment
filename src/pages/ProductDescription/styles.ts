@@ -47,27 +47,6 @@ export const ProductInformation = styled.div`
       gap: 0.75rem;
 
       margin-top: 0.5rem;
-
-      button {
-        color: #292929;
-        background-color: transparent;
-
-        border: 1px solid #1d1f22;
-
-        padding: 0.875rem 1.43rem;
-
-        &:first-child {
-          color: #a6a6a6;
-          border: 1px solid #a6a6a6;
-        }
-
-        &:nth-child(2) {
-          background-color: #1d1f22;
-          color: #fff;
-
-          border: 1px solid #1d1f22;
-        }
-      }
     }
   }
 

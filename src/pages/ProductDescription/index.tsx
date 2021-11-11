@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Button } from '../../components/Button';
+
 import {
   ProductDescriptionContainer,
   ImagesPreview,
@@ -40,10 +42,10 @@ export class ProductDescription extends React.Component {
             <h4>Size:</h4>
 
             <div>
-              <button>XS</button>
-              <button>S</button>
-              <button>M</button>
-              <button>L</button>
+              <Button isOutOfStock>XS</Button>
+              <Button isSelected>S</Button>
+              <Button>M</Button>
+              <Button>L</Button>
             </div>
           </div>
 

@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const ProductListContainer = styled.div`
-  h2 {
-    margin-bottom: 7.125rem;
+  h1 {
     font-weight: 400;
   }
 `;
@@ -11,6 +10,8 @@ export const ProductItemsList = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 6.4rem 3.5rem;
+
+  padding: 7.125rem 0 7.125rem;
 
   svg {
     width: 338px;

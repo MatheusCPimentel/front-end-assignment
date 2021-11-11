@@ -53,4 +53,8 @@ export const CategoryLink = styled(Link)<CategoryLinkProps>`
   cursor: pointer;
 
   ${({ isActive }) => isActive && ActiveCategoryLink}
+
+  &:hover {
+    color: #5ece7b;
+  }
 `;
