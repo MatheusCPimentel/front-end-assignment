@@ -54,7 +54,7 @@ export class ProductDescription extends React.Component {
             <h3>$50.00</h3>
           </div>
 
-          <button>Add to Cart</button>
+          <Button primary>Add to Cart</Button>
 
           <p>
             Find stunning women's cocktail dresses and party dresses. Stand out

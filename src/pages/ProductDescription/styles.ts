@@ -58,18 +58,7 @@ export const ProductInformation = styled.div`
   }
 
   > button {
-    background-color: #5ece7b;
-    color: #fff;
-
-    text-transform: uppercase;
-    padding: 1rem 5.875rem;
-    border: none;
-
-    transition: filter 0.2s;
-
-    &:hover {
-      filter: opacity(0.9);
-    }
+    padding: 1rem 1rem;
   }
 
   > p {

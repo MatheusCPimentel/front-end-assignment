@@ -20,10 +20,36 @@ const MinicartButton = css`
   font-size: 0.875rem;
 `;
 
+const PrimaryButton = css`
+  color: #fff;
+  background-color: #5ece7b;
+  border: none;
+
+  text-transform: uppercase;
+  font-weight: 600;
+
+  transition: filter 0.2s;
+
+  &:hover {
+    filter: opacity(0.9);
+  }
+`;
+
+const SecondaryButton = css`
+  color: #1d1f22;
+  background-color: transparent;
+  border: 1px solid #1d1f22;
+
+  text-transform: uppercase;
+  font-weight: 600;
+`;
+
 interface ButtonContainerProps {
   isSelected?: boolean;
   isOutOfStock?: boolean;
   isMinicart?: boolean;
+  primary?: boolean;
+  secondary?: boolean;
 }
 
 export const ButtonContainer = styled.button<ButtonContainerProps>`
@@ -39,4 +65,6 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
   ${({ isSelected }) => isSelected && SelectedButton}
   ${({ isOutOfStock }) => isOutOfStock && OutOfStockButton}
   ${({ isMinicart }) => isMinicart && MinicartButton}
+  ${({ primary }) => primary && PrimaryButton}
+  ${({ secondary }) => secondary && SecondaryButton}
 `;
