@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { HeaderContainer, CategoryLink } from './styles';
-
 import { Minicart } from '../Minicart';
 
 import {
@@ -10,10 +8,19 @@ import {
   ShoppingCartOutlined,
 } from '@material-ui/icons';
 
+import {
+  HeaderContainer,
+  CategoryLink,
+  CurrencyIcons,
+  CurrencyModal,
+} from './styles';
+
 interface HeaderProps {}
 
 interface HeaderState {
   category: string;
+  isCartModalOpen: boolean;
+  isCurrencyModalOpen: boolean;
 }
 
 export class Header extends React.Component<HeaderProps, HeaderState> {
@@ -22,6 +29,8 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
 
     this.state = {
       category: '',
+      isCartModalOpen: false,
+      isCurrencyModalOpen: false,
     };
   }
 
@@ -29,6 +38,30 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     const initialCategory = window.location.pathname.split('/')[1];
 
     this.setState({ category: initialCategory });
+  }
+
+  toggleCartModal() {
+    this.state.isCurrencyModalOpen &&
+      this.setState(prevState => ({
+        isCurrencyModalOpen: !prevState.isCurrencyModalOpen,
+      }));
+
+    this.setState(prevState => ({
+      isCartModalOpen: !prevState.isCartModalOpen,
+    }));
+  }
+
+  toggleCurrencyModal() {
+    this.state.isCartModalOpen &&
+      this.setState(prevState => ({
+        isCartModalOpen: !prevState.isCartModalOpen,
+      }));
+
+    this.setState(prevState => ({
+      isCurrencyModalOpen: !prevState.isCurrencyModalOpen,
+    }));
+
+    console.log(this.state.isCurrencyModalOpen);
   }
 
   render() {
@@ -69,27 +102,40 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
         <img src="images/logo.png" alt="Logo" />
 
         <div>
-          <Minicart />
+          {this.state.isCartModalOpen && <Minicart />}
 
-          <AttachMoney
-            style={{
-              color: '#1D1F22',
-              fontSize: 24,
-            }}
-          />
+          {this.state.isCurrencyModalOpen && (
+            <CurrencyModal>
+              <h4>$ USD</h4>
+              <h4>€ EUR</h4>
+              <h4>¥ JPY</h4>
+            </CurrencyModal>
+          )}
 
-          <KeyboardArrowDown
-            style={{
-              color: '#1D1F22',
-              fontSize: 17,
-            }}
-          />
+          <CurrencyIcons
+            onClick={() => this.toggleCurrencyModal()}
+            isCurrencyModalOpen={this.state.isCurrencyModalOpen}
+          >
+            <AttachMoney
+              style={{
+                color: '#1D1F22',
+                fontSize: 24,
+              }}
+            />
+            <KeyboardArrowDown
+              style={{
+                color: '#1D1F22',
+                fontSize: 17,
+              }}
+            />
+          </CurrencyIcons>
 
           <ShoppingCartOutlined
             style={{
               color: '#1D1F22',
               fontSize: 24,
             }}
+            onClick={() => this.toggleCartModal()}
           />
         </div>
       </HeaderContainer>

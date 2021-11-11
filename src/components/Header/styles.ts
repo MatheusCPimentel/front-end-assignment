@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const HeaderContainer = styled.div`
+  position: relative;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,16 +16,12 @@ export const HeaderContainer = styled.div`
     align-items: center;
   }
 
-  svg {
-    cursor: pointer;
-
-    &:last-child {
-      margin-left: 1.2rem;
-    }
-  }
-
   > div {
     position: relative;
+
+    svg {
+      cursor: pointer;
+    }
   }
 `;
 
@@ -60,5 +58,51 @@ export const CategoryLink = styled(Link)<CategoryLinkProps>`
 
   &:hover {
     color: #5ece7b;
+  }
+`;
+
+interface CurrencyIconsProps {
+  isCurrencyModalOpen: boolean;
+}
+
+const ArrowFlip = css`
+  svg:nth-child(2) {
+    transform: rotate(180deg);
+  }
+`;
+
+export const CurrencyIcons = styled.div<CurrencyIconsProps>`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 1.2rem;
+
+  svg {
+    transition: transform 0.2s;
+  }
+
+  ${({ isCurrencyModalOpen }) => isCurrencyModalOpen && ArrowFlip}
+`;
+
+export const CurrencyModal = styled.div`
+  position: absolute;
+  top: 2rem;
+  left: -1rem;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: #fff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  h4 {
+    cursor: pointer;
+    transition: background-color 0.2s;
+    padding: 1rem;
+
+    &:hover {
+      background-color: #5ece7b;
+    }
   }
 `;
