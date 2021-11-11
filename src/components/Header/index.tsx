@@ -2,6 +2,8 @@ import React from 'react';
 
 import { HeaderContainer, CategoryLink } from './styles';
 
+import { Minicart } from '../Minicart';
+
 import {
   AttachMoney,
   KeyboardArrowDown,
@@ -67,6 +69,8 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
         <img src="images/logo.png" alt="Logo" />
 
         <div>
+          <Minicart />
+
           <AttachMoney
             style={{
               color: '#1D1F22',

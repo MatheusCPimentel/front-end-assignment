@@ -14,9 +14,16 @@ const OutOfStockButton = css`
   cursor: not-allowed;
 `;
 
+const MinicartButton = css`
+  padding: 0.3rem 0.5rem;
+
+  font-size: 0.875rem;
+`;
+
 interface ButtonContainerProps {
   isSelected?: boolean;
   isOutOfStock?: boolean;
+  isMinicart?: boolean;
 }
 
 export const ButtonContainer = styled.button<ButtonContainerProps>`
@@ -31,4 +38,5 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
 
   ${({ isSelected }) => isSelected && SelectedButton}
   ${({ isOutOfStock }) => isOutOfStock && OutOfStockButton}
+  ${({ isMinicart }) => isMinicart && MinicartButton}
 `;

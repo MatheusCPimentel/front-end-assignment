@@ -21,6 +21,10 @@ export const HeaderContainer = styled.div`
       margin-left: 1.2rem;
     }
   }
+
+  > div {
+    position: relative;
+  }
 `;
 
 interface CategoryLinkProps {

@@ -5,6 +5,7 @@ import { ButtonContainer } from './styles';
 interface ButtonProps {
   isSelected?: boolean;
   isOutOfStock?: boolean;
+  isMinicart?: boolean;
 }
 
 export class Button extends React.Component<ButtonProps> {
@@ -13,6 +14,7 @@ export class Button extends React.Component<ButtonProps> {
       <ButtonContainer
         isSelected={this.props.isSelected}
         isOutOfStock={this.props.isOutOfStock}
+        isMinicart={this.props.isMinicart}
       >
         {this.props.children}
       </ButtonContainer>

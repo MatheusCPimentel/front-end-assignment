@@ -54,6 +54,10 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1.125rem;
   }
 
+  h5 {
+    font-size: 0.875rem;
+  }
+
   button {
     cursor: pointer;
   }
