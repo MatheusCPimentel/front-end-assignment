@@ -5,3 +5,11 @@ export const CURRENCY = gql`
     currencies
   }
 `;
+
+export const CATEGORY = gql`
+  query {
+    categories {
+      name
+    }
+  }
+`;

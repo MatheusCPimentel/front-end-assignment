@@ -22,6 +22,7 @@ interface HeaderProps {}
 
 interface HeaderState {
   category: string;
+  currencies: string[];
   isCartModalOpen: boolean;
   isCurrencyModalOpen: boolean;
 }
@@ -32,6 +33,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
 
     this.state = {
       category: '',
+      currencies: [''],
       isCartModalOpen: false,
       isCurrencyModalOpen: false,
     };
@@ -39,13 +41,12 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
 
   async componentDidMount() {
     const initialCategory = window.location.pathname.split('/')[1];
+
     const { data } = await apolloClient.query({
       query: CURRENCY,
     });
 
-    console.log(data);
-
-    this.setState({ category: initialCategory });
+    this.setState({ category: initialCategory, currencies: data.currencies });
   }
 
   toggleCartModal() {
@@ -112,9 +113,9 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
 
           {this.state.isCurrencyModalOpen && (
             <CurrencyModal>
-              <h4>$ USD</h4>
-              <h4>€ EUR</h4>
-              <h4>¥ JPY</h4>
+              {this.state.currencies.map(currency => (
+                <h4>{currency}</h4>
+              ))}
             </CurrencyModal>
           )}
 
