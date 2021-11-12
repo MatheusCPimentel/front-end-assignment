@@ -1,5 +1,8 @@
 import React from 'react';
 
+import apolloClient from '../../service/index';
+import { CURRENCY } from '../../queries';
+
 import { Minicart } from '../Minicart';
 
 import {
@@ -34,8 +37,13 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const initialCategory = window.location.pathname.split('/')[1];
+    const { data } = await apolloClient.query({
+      query: CURRENCY,
+    });
+
+    console.log(data);
 
     this.setState({ category: initialCategory });
   }
@@ -60,8 +68,6 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     this.setState(prevState => ({
       isCurrencyModalOpen: !prevState.isCurrencyModalOpen,
     }));
-
-    console.log(this.state.isCurrencyModalOpen);
   }
 
   render() {
